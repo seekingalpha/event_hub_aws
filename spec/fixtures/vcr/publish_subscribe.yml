@@ -1,0 +1,139 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sns.us-west-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=Publish&Message=%7B%22id%22%3A1%2C%22email%22%3A%22test%40example.com%22%7D&MessageAttributes.entry.1.Name=event&MessageAttributes.entry.1.Value.DataType=String&MessageAttributes.entry.1.Value.StringValue=user_registered&MessageAttributes.entry.2.Name=version&MessageAttributes.entry.2.Value.DataType=String&MessageAttributes.entry.2.Value.StringValue=1.1&MessageDeduplicationId=9961f0eb-d47f-4018-b3f9-13e631642798&MessageGroupId=message_group_id&TopicArn=arn%3Aaws%3Asns%3Aus-west-2%<ACCOUNT_NUMBER>%3Aevent-hub.fifo&Version=2010-03-31
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sns/1.60.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sns.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T154951Z
+      Content-Length:
+      - '542'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - a8d08729-8619-5d1f-bda4-da264778865a
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '352'
+      Date:
+      - Fri, 23 Jun 2023 15:49:52 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <PublishResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <PublishResult>
+            <SequenceNumber>10000000000270669000</SequenceNumber>
+            <MessageId>04f33f86-cc0e-5972-a4c2-62890d6f1237</MessageId>
+          </PublishResult>
+          <ResponseMetadata>
+            <RequestId>a8d08729-8619-5d1f-bda4-da264778865a</RequestId>
+          </ResponseMetadata>
+        </PublishResponse>
+  recorded_at: Fri, 23 Jun 2023 15:49:53 GMT
+- request:
+    method: post
+    uri: "<QUEUE_URL>"
+    body:
+      encoding: UTF-8
+      string: Action=ReceiveMessage&MaxNumberOfMessages=10&MessageAttributeName.1=All&QueueUrl=https%3A%2F%2Fsqs.us-west-2.amazonaws.com%2F744522205193%2Fmarket-data-events.fifo&Version=2012-11-05&WaitTimeSeconds=15
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sqs/1.55.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sqs.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T154953Z
+      Content-Length:
+      - '201'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - e1cc3a59-7178-584b-ba85-6756b01ad885
+      Date:
+      - Fri, 23 Jun 2023 15:49:54 GMT
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '1649'
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0"?><ReceiveMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><ReceiveMessageResult><Message><MessageId>67680895-fe16-4c66-a0f5-59cdfacc6e11</MessageId><ReceiptHandle>AQEBV2Tnr4OT71G/5fuBJJMf4dBQLEOa8Lml+gHk2jmS4j5UqMTdSZ+XLd5Nd4E9xs3FF0oVshQUrSh2gJITKMlRdRknuk6KLBq1b87uIE8NYtbAk5mOWSb/fHYGICaXBRVdT/yv9o9sJ1YW+H9g4ZZyCEX4AhuOEC4K/ezJ5foTLcMrQ7Juu1CZpdFGOjewUFmyipuyFucnQW+srnflCtKB0Ylakp5uWCJ3P4fQMtHnZBkBXaCJQ44lRNmXLol3duqF3aS4uoJ8LW1dL35sB/9wTXop0LOTAwGvn6mj4j/oGa0=</ReceiptHandle><MD5OfBody>5e1c0cfede0f91f904c2accbd6a6424f</MD5OfBody><Body>{
+          &quot;Type&quot; : &quot;Notification&quot;,
+          &quot;MessageId&quot; : &quot;04f33f86-cc0e-5972-a4c2-62890d6f1237&quot;,
+          &quot;SequenceNumber&quot; : &quot;10000000000270669000&quot;,
+          &quot;TopicArn&quot; : &quot;<EXCHANGE_ARN>&quot;,
+          &quot;Message&quot; : &quot;{\&quot;id\&quot;:1,\&quot;email\&quot;:\&quot;test@example.com\&quot;}&quot;,
+          &quot;Timestamp&quot; : &quot;2023-06-23T15:49:53.046Z&quot;,
+          &quot;UnsubscribeURL&quot; : &quot;https://sns.us-west-2.amazonaws.com/?Action=Unsubscribe&amp;SubscriptionArn=<EXCHANGE_ARN>:4b4e2140-7f85-40ec-ba84-c11dce610784&quot;,
+          &quot;MessageAttributes&quot; : {
+            &quot;event&quot; : {&quot;Type&quot;:&quot;String&quot;,&quot;Value&quot;:&quot;user_registered&quot;},
+            &quot;version&quot; : {&quot;Type&quot;:&quot;String&quot;,&quot;Value&quot;:&quot;1.1&quot;}
+          }
+        }</Body></Message></ReceiveMessageResult><ResponseMetadata><RequestId>e1cc3a59-7178-584b-ba85-6756b01ad885</RequestId></ResponseMetadata></ReceiveMessageResponse>
+  recorded_at: Fri, 23 Jun 2023 15:49:54 GMT
+- request:
+    method: post
+    uri: "<QUEUE_URL>"
+    body:
+      encoding: UTF-8
+      string: Action=DeleteMessage&QueueUrl=https%3A%2F%2Fsqs.us-west-2.amazonaws.com%2F744522205193%2Fmarket-data-events.fifo&ReceiptHandle=AQEBV2Tnr4OT71G%2F5fuBJJMf4dBQLEOa8Lml%2BgHk2jmS4j5UqMTdSZ%2BXLd5Nd4E9xs3FF0oVshQUrSh2gJITKMlRdRknuk6KLBq1b87uIE8NYtbAk5mOWSb%2FfHYGICaXBRVdT%2Fyv9o9sJ1YW%2BH9g4ZZyCEX4AhuOEC4K%2FezJ5foTLcMrQ7Juu1CZpdFGOjewUFmyipuyFucnQW%2BsrnflCtKB0Ylakp5uWCJ3P4fQMtHnZBkBXaCJQ44lRNmXLol3duqF3aS4uoJ8LW1dL35sB%2F9wTXop0LOTAwGvn6mj4j%2FoGa0%3D&Version=2012-11-05
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sqs/1.55.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sqs.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T154954Z
+      Content-Length:
+      - '472'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - b4380bcc-8145-5e52-a53d-56c340270e9c
+      Date:
+      - Fri, 23 Jun 2023 15:49:54 GMT
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '215'
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0"?><DeleteMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><ResponseMetadata><RequestId>b4380bcc-8145-5e52-a53d-56c340270e9c</RequestId></ResponseMetadata></DeleteMessageResponse>
+  recorded_at: Fri, 23 Jun 2023 15:49:54 GMT
+recorded_with: VCR 6.1.0

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    event_hub_aws (0.1.0)
+    event_hub_aws (1.0.0)
       aws-sdk-sns (~> 1.0)
       aws-sdk-sqs (~> 1.0)
       event_hub (~> 1.0)
@@ -31,6 +31,7 @@ GEM
       rexml
     diff-lcs (1.5.0)
     docile (1.4.0)
+    dotenv (2.8.1)
     event_hub (1.0.0)
     hashdiff (1.0.1)
     jmespath (1.6.2)
@@ -97,6 +98,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  dotenv
   event_hub_aws!
   rake (~> 13.0)
   rspec (~> 3.0)

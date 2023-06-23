@@ -1,0 +1,313 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sns.us-west-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=ListSubscriptionsByTopic&TopicArn=arn%3Aaws%3Asns%3Aus-west-2%<ACCOUNT_NUMBER>%3Aevent-hub.fifo&Version=2010-03-31
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sns/1.60.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sns.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T112539Z
+      Content-Length:
+      - '119'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - d6e22ba3-c7e6-50fd-96c9-76ac4492e61a
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '1133'
+      Date:
+      - Fri, 23 Jun 2023 11:25:39 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <ListSubscriptionsByTopicResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <ListSubscriptionsByTopicResult>
+            <Subscriptions>
+              <member>
+                <Owner>744522205193</Owner>
+                <Protocol>sqs</Protocol>
+                <Endpoint>arn:aws:sqs:us-west-2:744522205193:finance-api-events.fifo</Endpoint>
+                <SubscriptionArn><EXCHANGE_ARN>:7f89084e-4b38-438e-bd22-0dcbf215c434</SubscriptionArn>
+                <TopicArn><EXCHANGE_ARN></TopicArn>
+              </member>
+              <member>
+                <Owner>744522205193</Owner>
+                <Protocol>sqs</Protocol>
+                <Endpoint><QUEUE_ARN></Endpoint>
+                <SubscriptionArn><EXCHANGE_ARN>:4b4e2140-7f85-40ec-ba84-c11dce610784</SubscriptionArn>
+                <TopicArn><EXCHANGE_ARN></TopicArn>
+              </member>
+            </Subscriptions>
+          </ListSubscriptionsByTopicResult>
+          <ResponseMetadata>
+            <RequestId>d6e22ba3-c7e6-50fd-96c9-76ac4492e61a</RequestId>
+          </ResponseMetadata>
+        </ListSubscriptionsByTopicResponse>
+  recorded_at: Fri, 23 Jun 2023 11:25:40 GMT
+- request:
+    method: post
+    uri: https://sns.us-west-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetSubscriptionAttributes&SubscriptionArn=arn%3Aaws%3Asns%3Aus-west-2%<ACCOUNT_NUMBER>%3Aevent-hub.fifo%3A7f89084e-4b38-438e-bd22-0dcbf215c434&Version=2010-03-31
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sns/1.60.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sns.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T112540Z
+      X-Amz-Security-Token:
+      - '"IQoJb3JpZ2luX2VjEJP//////////wEaCXVzLXdlc3QtMiJGMEQCIEQOl3qd5kt16LuLTb0Z49GfLybfAX4nn7QErk0GFU5/AiBO/zyEgWVNUDe4m9cWcivFiPyHsxLXP1fWdMlZVg+uHyqWAwjs//////////8BEAQaDDc0NDUyMjIwNTE5MyIMW+yQlx9xEJFnqfpsKuoCZqmAj9Zu3iFM1iDd0Ns6YWM90DvBdtbmMjACgvjsP+Eu4ByZSNy0moPw9w7H2+cc450VUdThb2Q7Vp4UIJcUr0AoMsQCj6nMQZpW7LEtefPSZsIUvD4EwzPA49vkQxvBH0d1lsqbmCnRSnUF7ilLz0pMJ9ycfs8RQnn/lvWenzNEkl2sGWepBXI7Cc87HMDQtGud37FCvgiMSRnQXHwJnuLmAwNL2XTP59822VnjKc8cDQsMKzhFROqeCSu7CkLeyD4iDwtaeVDPzwx1Z9qKrLaY+i0LybqkdXotF4QB/UDy4OnK4viUJDNJSgLr/i6cA8lvYLafdGQwn0IOaSsl4ghkJCqJWcjx20jbBVnGGP+JaexKZHC1ciDW7WDFbCgI1bKeuJy/Ge89RWNqgRDbsAVDtPO5nNemwF7lT67fHn/9UnBRQq7XGlPsGWFxxpOi4WATXhIV0KL/UMRMQDTA/sjVuOyUdq1LnU8wvfzVpAY6pwE8sNW9cHCE60lOBgHny6QMY+8PBxHShGcFRtlJbS0TgSBblR+VqCkx1bO7RipiQ77A3hIcKlYUhcdqcmfag1VAVnwqqcTu4wO7Tbw91zIFMOOdNA7sln9LsnqkN75V1EzQlQFwUGP0Vh1BrElxKq9ujDil8e94z7atLlFEg+J2m/I0wQqKBlPsEL1FTnhsg1ZRzSEqNR+/j+bEm3fB5uh0lV33x9oA1Q=="'
+      X-Amz-Content-Sha256:
+      - a4c9399c15976bf2a23c5c61f97fd9fcc897333e2c895f447fd870bcd021b40d
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=ASIA22WH3JAE34SS6I5F/20230623/us-west-2/sns/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-security-token,
+        Signature=7af97634248bfb6d7d76202ae0963e6b8615b1381ad5d1c3306c794b459e82ae
+      Content-Length:
+      - '166'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 1485e194-933f-5054-bbfe-bc9b104b26b3
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '1704'
+      Date:
+      - Fri, 23 Jun 2023 11:25:39 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <GetSubscriptionAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <GetSubscriptionAttributesResult>
+            <Attributes>
+              <entry>
+                <key>SubscriptionPrincipal</key>
+                <value>arn:aws:iam::744522205193:role/aws-reserved/sso.amazonaws.com/us-west-2/AWSReservedSSO_Staging-Admin_00d109e38fca4455</value>
+              </entry>
+              <entry>
+                <key>Owner</key>
+                <value>744522205193</value>
+              </entry>
+              <entry>
+                <key>RawMessageDelivery</key>
+                <value>false</value>
+              </entry>
+              <entry>
+                <key>FilterPolicy</key>
+                <value>{&quot;event&quot;:[&quot;ticker_upserted&quot;]}</value>
+              </entry>
+              <entry>
+                <key>TopicArn</key>
+                <value><EXCHANGE_ARN></value>
+              </entry>
+              <entry>
+                <key>Endpoint</key>
+                <value>arn:aws:sqs:us-west-2:744522205193:finance-api-events.fifo</value>
+              </entry>
+              <entry>
+                <key>FilterPolicyScope</key>
+                <value>MessageAttributes</value>
+              </entry>
+              <entry>
+                <key>Protocol</key>
+                <value>sqs</value>
+              </entry>
+              <entry>
+                <key>PendingConfirmation</key>
+                <value>false</value>
+              </entry>
+              <entry>
+                <key>ConfirmationWasAuthenticated</key>
+                <value>true</value>
+              </entry>
+              <entry>
+                <key>SubscriptionArn</key>
+                <value><EXCHANGE_ARN>:7f89084e-4b38-438e-bd22-0dcbf215c434</value>
+              </entry>
+            </Attributes>
+          </GetSubscriptionAttributesResult>
+          <ResponseMetadata>
+            <RequestId>1485e194-933f-5054-bbfe-bc9b104b26b3</RequestId>
+          </ResponseMetadata>
+        </GetSubscriptionAttributesResponse>
+  recorded_at: Fri, 23 Jun 2023 11:25:40 GMT
+- request:
+    method: post
+    uri: https://sns.us-west-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetSubscriptionAttributes&SubscriptionArn=arn%3Aaws%3Asns%3Aus-west-2%<ACCOUNT_NUMBER>%3Aevent-hub.fifo%3A4b4e2140-7f85-40ec-ba84-c11dce610784&Version=2010-03-31
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sns/1.60.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sns.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T112540Z
+      X-Amz-Security-Token:
+      - '"IQoJb3JpZ2luX2VjEJP//////////wEaCXVzLXdlc3QtMiJGMEQCIEQOl3qd5kt16LuLTb0Z49GfLybfAX4nn7QErk0GFU5/AiBO/zyEgWVNUDe4m9cWcivFiPyHsxLXP1fWdMlZVg+uHyqWAwjs//////////8BEAQaDDc0NDUyMjIwNTE5MyIMW+yQlx9xEJFnqfpsKuoCZqmAj9Zu3iFM1iDd0Ns6YWM90DvBdtbmMjACgvjsP+Eu4ByZSNy0moPw9w7H2+cc450VUdThb2Q7Vp4UIJcUr0AoMsQCj6nMQZpW7LEtefPSZsIUvD4EwzPA49vkQxvBH0d1lsqbmCnRSnUF7ilLz0pMJ9ycfs8RQnn/lvWenzNEkl2sGWepBXI7Cc87HMDQtGud37FCvgiMSRnQXHwJnuLmAwNL2XTP59822VnjKc8cDQsMKzhFROqeCSu7CkLeyD4iDwtaeVDPzwx1Z9qKrLaY+i0LybqkdXotF4QB/UDy4OnK4viUJDNJSgLr/i6cA8lvYLafdGQwn0IOaSsl4ghkJCqJWcjx20jbBVnGGP+JaexKZHC1ciDW7WDFbCgI1bKeuJy/Ge89RWNqgRDbsAVDtPO5nNemwF7lT67fHn/9UnBRQq7XGlPsGWFxxpOi4WATXhIV0KL/UMRMQDTA/sjVuOyUdq1LnU8wvfzVpAY6pwE8sNW9cHCE60lOBgHny6QMY+8PBxHShGcFRtlJbS0TgSBblR+VqCkx1bO7RipiQ77A3hIcKlYUhcdqcmfag1VAVnwqqcTu4wO7Tbw91zIFMOOdNA7sln9LsnqkN75V1EzQlQFwUGP0Vh1BrElxKq9ujDil8e94z7atLlFEg+J2m/I0wQqKBlPsEL1FTnhsg1ZRzSEqNR+/j+bEm3fB5uh0lV33x9oA1Q=="'
+      X-Amz-Content-Sha256:
+      - efd3f789423d49db44e6ab9c91afb2f71bf1c9e02bc3496eb69c0b9afa6b2b93
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=ASIA22WH3JAE34SS6I5F/20230623/us-west-2/sns/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-security-token,
+        Signature=298e6d74d185974da6b24a72895f66669a6bf72cd5c7460a9f3674b07f8aea03
+      Content-Length:
+      - '166'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 9533936d-854c-58c4-873b-ce6206385e23
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '1710'
+      Date:
+      - Fri, 23 Jun 2023 11:25:40 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <GetSubscriptionAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <GetSubscriptionAttributesResult>
+            <Attributes>
+              <entry>
+                <key>SubscriptionPrincipal</key>
+                <value>arn:aws:iam::744522205193:role/aws-reserved/sso.amazonaws.com/us-west-2/AWSReservedSSO_Staging-DevUser_83437b8f2de77a33</value>
+              </entry>
+              <entry>
+                <key>Owner</key>
+                <value>744522205193</value>
+              </entry>
+              <entry>
+                <key>RawMessageDelivery</key>
+                <value>false</value>
+              </entry>
+              <entry>
+                <key>FilterPolicy</key>
+                <value>{&quot;event&quot;:[&quot;user_registered_bla&quot;]}</value>
+              </entry>
+              <entry>
+                <key>TopicArn</key>
+                <value><EXCHANGE_ARN></value>
+              </entry>
+              <entry>
+                <key>Endpoint</key>
+                <value><QUEUE_ARN></value>
+              </entry>
+              <entry>
+                <key>FilterPolicyScope</key>
+                <value>MessageAttributes</value>
+              </entry>
+              <entry>
+                <key>Protocol</key>
+                <value>sqs</value>
+              </entry>
+              <entry>
+                <key>PendingConfirmation</key>
+                <value>false</value>
+              </entry>
+              <entry>
+                <key>ConfirmationWasAuthenticated</key>
+                <value>true</value>
+              </entry>
+              <entry>
+                <key>SubscriptionArn</key>
+                <value><EXCHANGE_ARN>:4b4e2140-7f85-40ec-ba84-c11dce610784</value>
+              </entry>
+            </Attributes>
+          </GetSubscriptionAttributesResult>
+          <ResponseMetadata>
+            <RequestId>9533936d-854c-58c4-873b-ce6206385e23</RequestId>
+          </ResponseMetadata>
+        </GetSubscriptionAttributesResponse>
+  recorded_at: Fri, 23 Jun 2023 11:25:40 GMT
+- request:
+    method: post
+    uri: https://sns.us-west-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=SetSubscriptionAttributes&AttributeName=FilterPolicy&AttributeValue=%7B%22event%22%3A%5B%22user_registered%22%5D%7D&SubscriptionArn=arn%3Aaws%3Asns%3Aus-west-2%<ACCOUNT_NUMBER>%3Aevent-hub.fifo%3A4b4e2140-7f85-40ec-ba84-c11dce610784&Version=2010-03-31
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sns/1.60.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sns.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T112540Z
+      X-Amz-Security-Token:
+      - '"IQoJb3JpZ2luX2VjEJP//////////wEaCXVzLXdlc3QtMiJGMEQCIEQOl3qd5kt16LuLTb0Z49GfLybfAX4nn7QErk0GFU5/AiBO/zyEgWVNUDe4m9cWcivFiPyHsxLXP1fWdMlZVg+uHyqWAwjs//////////8BEAQaDDc0NDUyMjIwNTE5MyIMW+yQlx9xEJFnqfpsKuoCZqmAj9Zu3iFM1iDd0Ns6YWM90DvBdtbmMjACgvjsP+Eu4ByZSNy0moPw9w7H2+cc450VUdThb2Q7Vp4UIJcUr0AoMsQCj6nMQZpW7LEtefPSZsIUvD4EwzPA49vkQxvBH0d1lsqbmCnRSnUF7ilLz0pMJ9ycfs8RQnn/lvWenzNEkl2sGWepBXI7Cc87HMDQtGud37FCvgiMSRnQXHwJnuLmAwNL2XTP59822VnjKc8cDQsMKzhFROqeCSu7CkLeyD4iDwtaeVDPzwx1Z9qKrLaY+i0LybqkdXotF4QB/UDy4OnK4viUJDNJSgLr/i6cA8lvYLafdGQwn0IOaSsl4ghkJCqJWcjx20jbBVnGGP+JaexKZHC1ciDW7WDFbCgI1bKeuJy/Ge89RWNqgRDbsAVDtPO5nNemwF7lT67fHn/9UnBRQq7XGlPsGWFxxpOi4WATXhIV0KL/UMRMQDTA/sjVuOyUdq1LnU8wvfzVpAY6pwE8sNW9cHCE60lOBgHny6QMY+8PBxHShGcFRtlJbS0TgSBblR+VqCkx1bO7RipiQ77A3hIcKlYUhcdqcmfag1VAVnwqqcTu4wO7Tbw91zIFMOOdNA7sln9LsnqkN75V1EzQlQFwUGP0Vh1BrElxKq9ujDil8e94z7atLlFEg+J2m/I0wQqKBlPsEL1FTnhsg1ZRzSEqNR+/j+bEm3fB5uh0lV33x9oA1Q=="'
+      X-Amz-Content-Sha256:
+      - f5addcd13d79641e522423f8b46cdbc9211f3714174ffe41fb2fa2c23644a3b3
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=ASIA22WH3JAE34SS6I5F/20230623/us-west-2/sns/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-security-token,
+        Signature=5e57368ee5add1d7cd96672f6c2877e3c012210cd0e55cd9d0fcdf73c737dffd
+      Content-Length:
+      - '256'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 47d8e26b-86bb-5ce2-93d1-bf6405ceca05
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '229'
+      Date:
+      - Fri, 23 Jun 2023 11:25:40 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <SetSubscriptionAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <ResponseMetadata>
+            <RequestId>47d8e26b-86bb-5ce2-93d1-bf6405ceca05</RequestId>
+          </ResponseMetadata>
+        </SetSubscriptionAttributesResponse>
+  recorded_at: Fri, 23 Jun 2023 11:25:41 GMT
+recorded_with: VCR 6.1.0

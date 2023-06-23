@@ -12,6 +12,8 @@ gem 'rspec', '~> 3.0'
 gem 'rubocop', '~> 1.21'
 gem 'rubocop-rake'
 gem 'rubocop-rspec'
+gem 'dotenv'
+
 group :test do
   gem 'simplecov', require: false
   gem 'vcr'

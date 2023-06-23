@@ -14,12 +14,12 @@ class EventHub
 
       def subscribe(&block)
         loop do
-          receive_message_result = sqs.receive_message({
-                                                         queue_url: @config[:queue_url],
-                                                         message_attribute_names: ['All'], # Receive all custom attributes.
-                                                         max_number_of_messages: 10, # Receive at most one message.
-                                                         wait_time_seconds: 15 # Do not wait to check for the message.
-                                                       })
+          receive_message_result = sqs.receive_message(
+            queue_url: @config[:queue_url],
+            message_attribute_names: ['All'], # Receive all custom attributes.
+            max_number_of_messages: 10, # Receive at most one message.
+            wait_time_seconds: 15 # Do not wait to check for the message.
+          )
 
           # Display information about the message.
           # Display the message's body and each custom attribute value.
@@ -32,7 +32,7 @@ class EventHub
 
       def publish(event)
         topic.publish({
-                        message: event.to_json,
+                        message: event.body,
                         message_attributes: {
                           event: { data_type: 'String', string_value: event.class.event },
                           version: { data_type: 'String', string_value: event.class.version },
@@ -43,7 +43,9 @@ class EventHub
       end
 
       def setup_bindings
-        policy = { event: @config[:subscribe].keys }.to_json
+        events = @config[:subscribe].keys
+        events = ['__nothing__'] if events.empty? # AWS doesn't allow blank filters
+        policy = { event: events }.to_json
         subscription = topic.subscriptions.find { |s| s.attributes['Endpoint'] == @config[:queue_arn] }
         if subscription
           subscription.set_attributes({
@@ -71,11 +73,11 @@ class EventHub
       end
 
       def sns
-        @sns ||= Aws::SNS::Resource.new(@config[:credentials] || {})
+        @sns ||= ::Aws::SNS::Resource.new(@config[:credentials] || {})
       end
 
       def sqs
-        @sqs ||= Aws::SQS::Client.new(@config[:credentials] || {})
+        @sqs ||= ::Aws::SQS::Client.new(@config[:credentials] || {})
       end
     end
   end
