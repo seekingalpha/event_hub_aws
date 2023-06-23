@@ -6,5 +6,4 @@ require_relative 'event_hub_aws/adapters/aws'
 require_relative 'event_hub_aws/adapters/aws/message'
 
 module EventHubAws
-
 end
