@@ -14,7 +14,24 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-You can read the
+You can read the the general idea of the `event_hub` gem [here](https://github.com/seekingalpha/event_hub).
+The AWS adapter has its specific config:
+
+```yaml
+# config/event_hub.yml
+development:
+  credentials:
+    region: us-west-2
+    access_key_id: 123
+    secret_access_key: 321
+  adapter: Aws
+  queue_url: https://sqs.us-west-2.amazonaws.com/1234567890/events.fifo
+  queue_arn: arn:aws:sqs:us-west-2:1234567890:events.fifo
+  exchange_arn: arn:aws:sns:us-west-2:1234567890:event-hub.fifo
+  subscribe:
+    user_registered:
+      handler: Handlers::UserRegistered
+```
 
 ## Development
 

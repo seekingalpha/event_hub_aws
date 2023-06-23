@@ -5,7 +5,7 @@ http_interactions:
     uri: https://sns.us-west-2.amazonaws.com/
     body:
       encoding: UTF-8
-      string: Action=ListSubscriptionsByTopic&TopicArn=arn%3Aaws%3Asns%3Aus-west-2%<ACCOUNT_NUMBER>%3Aevent-hub.fifo&Version=2010-03-31
+      string: Action=ListSubscriptionsByTopic&TopicArn=arn%3Aaws%3Asns%3Aus-west-2%3A<ACCOUNT_NUMBER>%3Aevent-hub.fifo&Version=2010-03-31
     headers:
       Accept-Encoding:
       - ''
@@ -16,15 +16,7 @@ http_interactions:
       Host:
       - sns.us-west-2.amazonaws.com
       X-Amz-Date:
-      - 20230623T112406Z
-      X-Amz-Security-Token:
-      - '"IQoJb3JpZ2luX2VjEJP//////////wEaCXVzLXdlc3QtMiJGMEQCIEQOl3qd5kt16LuLTb0Z49GfLybfAX4nn7QErk0GFU5/AiBO/zyEgWVNUDe4m9cWcivFiPyHsxLXP1fWdMlZVg+uHyqWAwjs//////////8BEAQaDDc0NDUyMjIwNTE5MyIMW+yQlx9xEJFnqfpsKuoCZqmAj9Zu3iFM1iDd0Ns6YWM90DvBdtbmMjACgvjsP+Eu4ByZSNy0moPw9w7H2+cc450VUdThb2Q7Vp4UIJcUr0AoMsQCj6nMQZpW7LEtefPSZsIUvD4EwzPA49vkQxvBH0d1lsqbmCnRSnUF7ilLz0pMJ9ycfs8RQnn/lvWenzNEkl2sGWepBXI7Cc87HMDQtGud37FCvgiMSRnQXHwJnuLmAwNL2XTP59822VnjKc8cDQsMKzhFROqeCSu7CkLeyD4iDwtaeVDPzwx1Z9qKrLaY+i0LybqkdXotF4QB/UDy4OnK4viUJDNJSgLr/i6cA8lvYLafdGQwn0IOaSsl4ghkJCqJWcjx20jbBVnGGP+JaexKZHC1ciDW7WDFbCgI1bKeuJy/Ge89RWNqgRDbsAVDtPO5nNemwF7lT67fHn/9UnBRQq7XGlPsGWFxxpOi4WATXhIV0KL/UMRMQDTA/sjVuOyUdq1LnU8wvfzVpAY6pwE8sNW9cHCE60lOBgHny6QMY+8PBxHShGcFRtlJbS0TgSBblR+VqCkx1bO7RipiQ77A3hIcKlYUhcdqcmfag1VAVnwqqcTu4wO7Tbw91zIFMOOdNA7sln9LsnqkN75V1EzQlQFwUGP0Vh1BrElxKq9ujDil8e94z7atLlFEg+J2m/I0wQqKBlPsEL1FTnhsg1ZRzSEqNR+/j+bEm3fB5uh0lV33x9oA1Q=="'
-      X-Amz-Content-Sha256:
-      - ef3886da234e9d8643cf8cbe21b77da598df7bc676c895dbb02074290e0b5333
-      Authorization:
-      - AWS4-HMAC-SHA256 Credential=ASIA22WH3JAE34SS6I5F/20230623/us-west-2/sns/aws4_request,
-        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-security-token,
-        Signature=c11564d386da87abfb574974a0c0bfc77f9c9e7cae38b53e2cbdd02aa0ba4dd0
+      - 20230623T164341Z
       Content-Length:
       - '119'
       Accept:
@@ -35,13 +27,13 @@ http_interactions:
       message: OK
     headers:
       X-Amzn-Requestid:
-      - e1dbcb22-cfdc-50f9-a4ee-962d4ccb61d4
+      - ea81b046-5297-5cab-89af-ed499f6947ce
       Content-Type:
       - text/xml
       Content-Length:
       - '736'
       Date:
-      - Fri, 23 Jun 2023 11:24:06 GMT
+      - Fri, 23 Jun 2023 16:43:41 GMT
     body:
       encoding: UTF-8
       string: |
@@ -49,25 +41,25 @@ http_interactions:
           <ListSubscriptionsByTopicResult>
             <Subscriptions>
               <member>
-                <Owner>744522205193</Owner>
+                <Owner><ACCOUNT_NUMBER></Owner>
+                <Endpoint>arn:aws:sqs:us-west-2:<ACCOUNT_NUMBER>:finance-api-events.fifo</Endpoint>
                 <Protocol>sqs</Protocol>
-                <Endpoint>arn:aws:sqs:us-west-2:744522205193:finance-api-events.fifo</Endpoint>
                 <SubscriptionArn><EXCHANGE_ARN>:7f89084e-4b38-438e-bd22-0dcbf215c434</SubscriptionArn>
                 <TopicArn><EXCHANGE_ARN></TopicArn>
               </member>
             </Subscriptions>
           </ListSubscriptionsByTopicResult>
           <ResponseMetadata>
-            <RequestId>e1dbcb22-cfdc-50f9-a4ee-962d4ccb61d4</RequestId>
+            <RequestId>ea81b046-5297-5cab-89af-ed499f6947ce</RequestId>
           </ResponseMetadata>
         </ListSubscriptionsByTopicResponse>
-  recorded_at: Fri, 23 Jun 2023 11:24:07 GMT
+  recorded_at: Fri, 23 Jun 2023 16:43:42 GMT
 - request:
     method: post
     uri: https://sns.us-west-2.amazonaws.com/
     body:
       encoding: UTF-8
-      string: Action=GetSubscriptionAttributes&SubscriptionArn=arn%3Aaws%3Asns%3Aus-west-2%<ACCOUNT_NUMBER>%3Aevent-hub.fifo%3A7f89084e-4b38-438e-bd22-0dcbf215c434&Version=2010-03-31
+      string: Action=GetSubscriptionAttributes&SubscriptionArn=arn%3Aaws%3Asns%3Aus-west-2%3A<ACCOUNT_NUMBER>%3Aevent-hub.fifo%3A7f89084e-4b38-438e-bd22-0dcbf215c434&Version=2010-03-31
     headers:
       Accept-Encoding:
       - ''
@@ -78,7 +70,7 @@ http_interactions:
       Host:
       - sns.us-west-2.amazonaws.com
       X-Amz-Date:
-      - 20230623T112407Z
+      - 20230623T164342Z
       Content-Length:
       - '166'
       Accept:
@@ -89,13 +81,13 @@ http_interactions:
       message: OK
     headers:
       X-Amzn-Requestid:
-      - e99ae6b1-81ff-582d-94d2-bbbe02e85900
+      - a554a6f3-d9d6-5b40-8940-fbfc14287025
       Content-Type:
       - text/xml
       Content-Length:
       - '1704'
       Date:
-      - Fri, 23 Jun 2023 11:24:06 GMT
+      - Fri, 23 Jun 2023 16:43:41 GMT
     body:
       encoding: UTF-8
       string: |
@@ -104,11 +96,11 @@ http_interactions:
             <Attributes>
               <entry>
                 <key>SubscriptionPrincipal</key>
-                <value>arn:aws:iam::744522205193:role/aws-reserved/sso.amazonaws.com/us-west-2/AWSReservedSSO_Staging-Admin_00d109e38fca4455</value>
+                <value>arn:aws:iam::<ACCOUNT_NUMBER>:role/aws-reserved/sso.amazonaws.com/us-west-2/AWSReservedSSO_Staging-Admin_00d109e38fca4455</value>
               </entry>
               <entry>
                 <key>Owner</key>
-                <value>744522205193</value>
+                <value><ACCOUNT_NUMBER></value>
               </entry>
               <entry>
                 <key>RawMessageDelivery</key>
@@ -124,7 +116,7 @@ http_interactions:
               </entry>
               <entry>
                 <key>Endpoint</key>
-                <value>arn:aws:sqs:us-west-2:744522205193:finance-api-events.fifo</value>
+                <value>arn:aws:sqs:us-west-2:<ACCOUNT_NUMBER>:finance-api-events.fifo</value>
               </entry>
               <entry>
                 <key>FilterPolicyScope</key>
@@ -149,16 +141,16 @@ http_interactions:
             </Attributes>
           </GetSubscriptionAttributesResult>
           <ResponseMetadata>
-            <RequestId>e99ae6b1-81ff-582d-94d2-bbbe02e85900</RequestId>
+            <RequestId>a554a6f3-d9d6-5b40-8940-fbfc14287025</RequestId>
           </ResponseMetadata>
         </GetSubscriptionAttributesResponse>
-  recorded_at: Fri, 23 Jun 2023 11:24:07 GMT
+  recorded_at: Fri, 23 Jun 2023 16:43:42 GMT
 - request:
     method: post
     uri: https://sns.us-west-2.amazonaws.com/
     body:
       encoding: UTF-8
-      string: Action=Subscribe&Attributes.entry.1.key=FilterPolicy&Attributes.entry.1.value=%7B%22event%22%3A%5B%22user_registered%22%5D%7D&Endpoint=arn%3Aaws%3Asqs%3Aus-west-2%<ACCOUNT_NUMBER>%3Amarket-data-events.fifo&Protocol=sqs&TopicArn=arn%3Aaws%3Asns%3Aus-west-2%<ACCOUNT_NUMBER>%3Aevent-hub.fifo&Version=2010-03-31
+      string: Action=Subscribe&Attributes.entry.1.key=FilterPolicy&Attributes.entry.1.value=%7B%22event%22%3A%5B%22user_registered%22%5D%7D&Endpoint=arn%3Aaws%3Asqs%3Aus-west-2%3A<ACCOUNT_NUMBER>%3Amarket-data-events.fifo&Protocol=sqs&TopicArn=arn%3Aaws%3Asns%3Aus-west-2%3A<ACCOUNT_NUMBER>%3Aevent-hub.fifo&Version=2010-03-31
     headers:
       Accept-Encoding:
       - ''
@@ -169,15 +161,7 @@ http_interactions:
       Host:
       - sns.us-west-2.amazonaws.com
       X-Amz-Date:
-      - 20230623T112407Z
-      X-Amz-Security-Token:
-      - '"IQoJb3JpZ2luX2VjEJP//////////wEaCXVzLXdlc3QtMiJGMEQCIEQOl3qd5kt16LuLTb0Z49GfLybfAX4nn7QErk0GFU5/AiBO/zyEgWVNUDe4m9cWcivFiPyHsxLXP1fWdMlZVg+uHyqWAwjs//////////8BEAQaDDc0NDUyMjIwNTE5MyIMW+yQlx9xEJFnqfpsKuoCZqmAj9Zu3iFM1iDd0Ns6YWM90DvBdtbmMjACgvjsP+Eu4ByZSNy0moPw9w7H2+cc450VUdThb2Q7Vp4UIJcUr0AoMsQCj6nMQZpW7LEtefPSZsIUvD4EwzPA49vkQxvBH0d1lsqbmCnRSnUF7ilLz0pMJ9ycfs8RQnn/lvWenzNEkl2sGWepBXI7Cc87HMDQtGud37FCvgiMSRnQXHwJnuLmAwNL2XTP59822VnjKc8cDQsMKzhFROqeCSu7CkLeyD4iDwtaeVDPzwx1Z9qKrLaY+i0LybqkdXotF4QB/UDy4OnK4viUJDNJSgLr/i6cA8lvYLafdGQwn0IOaSsl4ghkJCqJWcjx20jbBVnGGP+JaexKZHC1ciDW7WDFbCgI1bKeuJy/Ge89RWNqgRDbsAVDtPO5nNemwF7lT67fHn/9UnBRQq7XGlPsGWFxxpOi4WATXhIV0KL/UMRMQDTA/sjVuOyUdq1LnU8wvfzVpAY6pwE8sNW9cHCE60lOBgHny6QMY+8PBxHShGcFRtlJbS0TgSBblR+VqCkx1bO7RipiQ77A3hIcKlYUhcdqcmfag1VAVnwqqcTu4wO7Tbw91zIFMOOdNA7sln9LsnqkN75V1EzQlQFwUGP0Vh1BrElxKq9ujDil8e94z7atLlFEg+J2m/I0wQqKBlPsEL1FTnhsg1ZRzSEqNR+/j+bEm3fB5uh0lV33x9oA1Q=="'
-      X-Amz-Content-Sha256:
-      - a0c7c4bad722fa18ba92208dc7721762c06db2cf2d3e9ac6a7e8620cdce43ef7
-      Authorization:
-      - AWS4-HMAC-SHA256 Credential=ASIA22WH3JAE34SS6I5F/20230623/us-west-2/sns/aws4_request,
-        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date;x-amz-security-token,
-        Signature=bb716a8275b30384b66fb4a986ec09053c6677f14a6362f1164ec54897756bf1
+      - 20230623T164342Z
       Content-Length:
       - '304'
       Accept:
@@ -188,23 +172,23 @@ http_interactions:
       message: OK
     headers:
       X-Amzn-Requestid:
-      - 47397744-7de0-5de1-85c8-2a4bfef7accc
+      - 38ca7be5-0926-5ea0-a327-26eac4d8e5c5
       Content-Type:
       - text/xml
       Content-Length:
       - '364'
       Date:
-      - Fri, 23 Jun 2023 11:24:07 GMT
+      - Fri, 23 Jun 2023 16:43:42 GMT
     body:
       encoding: UTF-8
       string: |
         <SubscribeResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
           <SubscribeResult>
-            <SubscriptionArn><EXCHANGE_ARN>:4b4e2140-7f85-40ec-ba84-c11dce610784</SubscriptionArn>
+            <SubscriptionArn><EXCHANGE_ARN>:b1fe8a57-da7d-4f58-992e-a1178bc5a7bc</SubscriptionArn>
           </SubscribeResult>
           <ResponseMetadata>
-            <RequestId>47397744-7de0-5de1-85c8-2a4bfef7accc</RequestId>
+            <RequestId>38ca7be5-0926-5ea0-a327-26eac4d8e5c5</RequestId>
           </ResponseMetadata>
         </SubscribeResponse>
-  recorded_at: Fri, 23 Jun 2023 11:24:07 GMT
+  recorded_at: Fri, 23 Jun 2023 16:43:42 GMT
 recorded_with: VCR 6.1.0
