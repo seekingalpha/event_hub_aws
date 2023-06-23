@@ -1,24 +1,37 @@
 # EventHubAws
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/event_hub_aws`. To experiment with that code, run `bin/console` for an interactive prompt.
+AWS adapter for the [event_hub](https://github.com/seekingalpha/event_hub) gem.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add event_hub_aws
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install event_hub_aws
 
 ## Usage
 
-TODO: Write usage instructions here
+You can read the the general idea of the `event_hub` gem [here](https://github.com/seekingalpha/event_hub).
+The AWS adapter has its specific config:
+
+```yaml
+# config/event_hub.yml
+development:
+  credentials:
+    region: us-west-2
+    access_key_id: 123
+    secret_access_key: 321
+  adapter: Aws
+  queue_url: https://sqs.us-west-2.amazonaws.com/1234567890/events.fifo
+  queue_arn: arn:aws:sqs:us-west-2:1234567890:events.fifo
+  exchange_arn: arn:aws:sns:us-west-2:1234567890:event-hub.fifo
+  subscribe:
+    user_registered:
+      handler: Handlers::UserRegistered
+```
 
 ## Development
 

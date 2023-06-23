@@ -1,0 +1,289 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sns.us-west-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=ListSubscriptionsByTopic&TopicArn=arn%3Aaws%3Asns%3Aus-west-2%3A<ACCOUNT_NUMBER>%3Aevent-hub.fifo&Version=2010-03-31
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sns/1.60.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sns.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T164520Z
+      Content-Length:
+      - '119'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 1ed1f7d4-8fc6-5fb8-9699-aadb41a76c2a
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '1133'
+      Date:
+      - Fri, 23 Jun 2023 16:45:21 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <ListSubscriptionsByTopicResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <ListSubscriptionsByTopicResult>
+            <Subscriptions>
+              <member>
+                <Owner><ACCOUNT_NUMBER></Owner>
+                <Protocol>sqs</Protocol>
+                <Endpoint>arn:aws:sqs:us-west-2:<ACCOUNT_NUMBER>:finance-api-events.fifo</Endpoint>
+                <SubscriptionArn><EXCHANGE_ARN>:7f89084e-4b38-438e-bd22-0dcbf215c434</SubscriptionArn>
+                <TopicArn><EXCHANGE_ARN></TopicArn>
+              </member>
+              <member>
+                <Owner><ACCOUNT_NUMBER></Owner>
+                <Protocol>sqs</Protocol>
+                <Endpoint><QUEUE_ARN></Endpoint>
+                <SubscriptionArn><EXCHANGE_ARN>:b1fe8a57-da7d-4f58-992e-a1178bc5a7bc</SubscriptionArn>
+                <TopicArn><EXCHANGE_ARN></TopicArn>
+              </member>
+            </Subscriptions>
+          </ListSubscriptionsByTopicResult>
+          <ResponseMetadata>
+            <RequestId>1ed1f7d4-8fc6-5fb8-9699-aadb41a76c2a</RequestId>
+          </ResponseMetadata>
+        </ListSubscriptionsByTopicResponse>
+  recorded_at: Fri, 23 Jun 2023 16:45:21 GMT
+- request:
+    method: post
+    uri: https://sns.us-west-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetSubscriptionAttributes&SubscriptionArn=arn%3Aaws%3Asns%3Aus-west-2%3A<ACCOUNT_NUMBER>%3Aevent-hub.fifo%3A7f89084e-4b38-438e-bd22-0dcbf215c434&Version=2010-03-31
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sns/1.60.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sns.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T164521Z
+      Content-Length:
+      - '166'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - a30ada6c-013b-580f-a5ea-8763cf5a2b9d
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '1704'
+      Date:
+      - Fri, 23 Jun 2023 16:45:21 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <GetSubscriptionAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <GetSubscriptionAttributesResult>
+            <Attributes>
+              <entry>
+                <key>SubscriptionPrincipal</key>
+                <value>arn:aws:iam::<ACCOUNT_NUMBER>:role/aws-reserved/sso.amazonaws.com/us-west-2/AWSReservedSSO_Staging-Admin_00d109e38fca4455</value>
+              </entry>
+              <entry>
+                <key>Owner</key>
+                <value><ACCOUNT_NUMBER></value>
+              </entry>
+              <entry>
+                <key>RawMessageDelivery</key>
+                <value>false</value>
+              </entry>
+              <entry>
+                <key>FilterPolicy</key>
+                <value>{&quot;event&quot;:[&quot;ticker_upserted&quot;]}</value>
+              </entry>
+              <entry>
+                <key>TopicArn</key>
+                <value><EXCHANGE_ARN></value>
+              </entry>
+              <entry>
+                <key>Endpoint</key>
+                <value>arn:aws:sqs:us-west-2:<ACCOUNT_NUMBER>:finance-api-events.fifo</value>
+              </entry>
+              <entry>
+                <key>FilterPolicyScope</key>
+                <value>MessageAttributes</value>
+              </entry>
+              <entry>
+                <key>Protocol</key>
+                <value>sqs</value>
+              </entry>
+              <entry>
+                <key>PendingConfirmation</key>
+                <value>false</value>
+              </entry>
+              <entry>
+                <key>ConfirmationWasAuthenticated</key>
+                <value>true</value>
+              </entry>
+              <entry>
+                <key>SubscriptionArn</key>
+                <value><EXCHANGE_ARN>:7f89084e-4b38-438e-bd22-0dcbf215c434</value>
+              </entry>
+            </Attributes>
+          </GetSubscriptionAttributesResult>
+          <ResponseMetadata>
+            <RequestId>a30ada6c-013b-580f-a5ea-8763cf5a2b9d</RequestId>
+          </ResponseMetadata>
+        </GetSubscriptionAttributesResponse>
+  recorded_at: Fri, 23 Jun 2023 16:45:21 GMT
+- request:
+    method: post
+    uri: https://sns.us-west-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetSubscriptionAttributes&SubscriptionArn=arn%3Aaws%3Asns%3Aus-west-2%3A<ACCOUNT_NUMBER>%3Aevent-hub.fifo%3Ab1fe8a57-da7d-4f58-992e-a1178bc5a7bc&Version=2010-03-31
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sns/1.60.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sns.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T164521Z
+      Content-Length:
+      - '166'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 9fe636ca-563a-5aaa-81e9-6bc5985b5938
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '1710'
+      Date:
+      - Fri, 23 Jun 2023 16:45:21 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <GetSubscriptionAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <GetSubscriptionAttributesResult>
+            <Attributes>
+              <entry>
+                <key>SubscriptionPrincipal</key>
+                <value>arn:aws:iam::<ACCOUNT_NUMBER>:role/aws-reserved/sso.amazonaws.com/us-west-2/AWSReservedSSO_Staging-DevUser_83437b8f2de77a33</value>
+              </entry>
+              <entry>
+                <key>Owner</key>
+                <value><ACCOUNT_NUMBER></value>
+              </entry>
+              <entry>
+                <key>RawMessageDelivery</key>
+                <value>false</value>
+              </entry>
+              <entry>
+                <key>FilterPolicy</key>
+                <value>{&quot;event&quot;:[&quot;user_registered_bla&quot;]}</value>
+              </entry>
+              <entry>
+                <key>TopicArn</key>
+                <value><EXCHANGE_ARN></value>
+              </entry>
+              <entry>
+                <key>Endpoint</key>
+                <value><QUEUE_ARN></value>
+              </entry>
+              <entry>
+                <key>FilterPolicyScope</key>
+                <value>MessageAttributes</value>
+              </entry>
+              <entry>
+                <key>Protocol</key>
+                <value>sqs</value>
+              </entry>
+              <entry>
+                <key>PendingConfirmation</key>
+                <value>false</value>
+              </entry>
+              <entry>
+                <key>ConfirmationWasAuthenticated</key>
+                <value>true</value>
+              </entry>
+              <entry>
+                <key>SubscriptionArn</key>
+                <value><EXCHANGE_ARN>:b1fe8a57-da7d-4f58-992e-a1178bc5a7bc</value>
+              </entry>
+            </Attributes>
+          </GetSubscriptionAttributesResult>
+          <ResponseMetadata>
+            <RequestId>9fe636ca-563a-5aaa-81e9-6bc5985b5938</RequestId>
+          </ResponseMetadata>
+        </GetSubscriptionAttributesResponse>
+  recorded_at: Fri, 23 Jun 2023 16:45:21 GMT
+- request:
+    method: post
+    uri: https://sns.us-west-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=SetSubscriptionAttributes&AttributeName=FilterPolicy&AttributeValue=%7B%22event%22%3A%5B%22user_registered%22%5D%7D&SubscriptionArn=arn%3Aaws%3Asns%3Aus-west-2%3A<ACCOUNT_NUMBER>%3Aevent-hub.fifo%3Ab1fe8a57-da7d-4f58-992e-a1178bc5a7bc&Version=2010-03-31
+    headers:
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.173.1 ruby/3.2.1 x86_64-darwin21 aws-sdk-sns/1.60.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Host:
+      - sns.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20230623T164521Z
+      Content-Length:
+      - '256'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - c0546354-d207-5b66-8047-3e5b1c6608f4
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '229'
+      Date:
+      - Fri, 23 Jun 2023 16:45:21 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <SetSubscriptionAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <ResponseMetadata>
+            <RequestId>c0546354-d207-5b66-8047-3e5b1c6608f4</RequestId>
+          </ResponseMetadata>
+        </SetSubscriptionAttributesResponse>
+  recorded_at: Fri, 23 Jun 2023 16:45:21 GMT
+recorded_with: VCR 6.1.0

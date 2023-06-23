@@ -48,8 +48,5 @@ Lint/AmbiguousOperatorPrecedence:
 Bundler/OrderedGems:
   Enabled: false
 
-Style/ClassAndModuleChildren:
-  Enabled: false
-
 Lint/MissingSuper:
   Enabled: false
