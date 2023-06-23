@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'dotenv'
-Dotenv.load
+Dotenv.load('.env.test')
 
 require 'webmock'
 require 'vcr'

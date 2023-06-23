@@ -24,7 +24,11 @@ end
 RSpec.describe EventHubAws do
   before do
     EventHub.configure(
-      :credentials => { :region => 'us-west-2' },
+      :credentials => {
+        :region => 'us-west-2',
+        access_key_id: ENV.fetch('ACCESS_KEY_ID'),
+        secret_access_key: ENV.fetch('SECRET_ACCESS_KEY')
+      },
       :subscribe => { user_registered: { handler: 'UserRegisteredHandler' } },
       :queue_url => ENV.fetch('QUEUE_URL'),
       :queue_arn => ENV.fetch('QUEUE_ARN'),
