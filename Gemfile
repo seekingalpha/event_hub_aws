@@ -12,3 +12,9 @@ gem 'rspec', '~> 3.0'
 gem 'rubocop', '~> 1.21'
 gem 'rubocop-rake'
 gem 'rubocop-rspec'
+group :test do
+  gem 'simplecov', require: false
+  gem 'vcr'
+  gem 'webmock'
+end
+
