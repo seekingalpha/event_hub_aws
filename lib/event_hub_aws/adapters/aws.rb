@@ -31,15 +31,17 @@ class EventHub
       end
 
       def publish(event)
-        topic.publish({
-                        message: event.body,
-                        message_attributes: {
-                          event: { data_type: 'String', string_value: event.class.event },
-                          version: { data_type: 'String', string_value: event.class.version },
-                        },
-                        message_group_id: 'message_group_id',
-                        message_deduplication_id: SecureRandom.uuid
-                      })
+        message = {
+          message: event.body,
+          message_attributes: {
+            event: { data_type: 'String', string_value: event.class.event },
+            version: { data_type: 'String', string_value: event.class.version },
+          },
+        }
+        if fifo_exchange?
+          message.merge!(message_group_id: 'message_group_id', message_deduplication_id: SecureRandom.uuid)
+        end
+        topic.publish(message)
       end
 
       def setup_bindings
@@ -78,6 +80,12 @@ class EventHub
 
       def sqs
         @sqs ||= ::Aws::SQS::Client.new(@config[:credentials] || {})
+      end
+
+      def fifo_exchange?
+        return @fifo_exchange if defined?(@fifo_exchange)
+
+        @fifo_exchange = @config[:exchange_arn].end_with?('.fifo')
       end
     end
   end

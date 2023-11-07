@@ -31,10 +31,9 @@ class EventHub
         end
 
         def reject
-          if @adapter.config[:dead_queue_url]
-            # TODO: publish the message to the dead_queue
-          end
-          ack
+          ack if @adapter.config[:delete_message_on_failure]
+          # other wise it will be returned to the main queue and then after the maxReceiveCount it will be sent to
+          # the DeadLetter queue
         end
 
         private

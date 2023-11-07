@@ -28,6 +28,7 @@ development:
   queue_url: https://sqs.us-west-2.amazonaws.com/1234567890/events.fifo
   queue_arn: arn:aws:sqs:us-west-2:1234567890:events.fifo
   exchange_arn: arn:aws:sns:us-west-2:1234567890:event-hub.fifo
+  # delete_message_on_failure: true # uncomment if you don't have dead-letter queue and wanna just delete messages on failure
   subscribe:
     user_registered:
       handler: Handlers::UserRegistered
