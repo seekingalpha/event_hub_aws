@@ -38,7 +38,9 @@ class EventHub
             version: { data_type: 'String', string_value: event.class.version },
           },
         }
-        message.merge!(message_group_id: 'message_group_id', message_deduplication_id: SecureRandom.uuid) if fifo?
+        if fifo_exchange?
+          message.merge!(message_group_id: 'message_group_id', message_deduplication_id: SecureRandom.uuid)
+        end
         topic.publish(message)
       end
 
@@ -80,10 +82,10 @@ class EventHub
         @sqs ||= ::Aws::SQS::Client.new(@config[:credentials] || {})
       end
 
-      def fifo?
-        return @fifo if defined?(@fifo)
+      def fifo_exchange?
+        return @fifo_exchange if defined?(@fifo_exchange)
 
-        @fifo = @config[:queue_arn].end_with?('.fifo')
+        @fifo_exchange = @config[:exchange_arn].end_with?('.fifo')
       end
     end
   end
