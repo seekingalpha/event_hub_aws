@@ -31,9 +31,13 @@ class EventHub
         end
 
         def reject
-          ack if @adapter.config[:delete_message_on_failure]
-          # other wise it will be returned to the main queue and then after the maxReceiveCount it will be sent to
-          # the DeadLetter queue
+          if @adapter.config[:delete_message_on_failure]
+            ack
+          else
+            # Return message to the main queue immediately and then after the maxReceiveCount
+            # it will be sent to the DeadLetter queue
+            @adapter.change_message_visibility(@message.receipt_handle, 0)
+          end
         end
 
         private

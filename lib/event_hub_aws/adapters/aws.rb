@@ -6,19 +6,28 @@ require 'aws-sdk-sqs'
 class EventHub
   module Adapters
     class Aws
+      DEFAULT_CONFIG = {
+        delete_message_on_failure: false,
+        message_attribute_names: ['All'],
+        max_number_of_messages: 10,
+        wait_time_seconds: 15,
+        visibility_timeout: 30
+      }.freeze
+
       attr_reader :config
 
       def initialize(config)
-        @config = config
+        @config = config.merge(DEFAULT_CONFIG) { |_k, config_value, _default_value| config_value }
       end
 
       def subscribe(&block)
         loop do
           receive_message_result = sqs.receive_message(
             queue_url: @config[:queue_url],
-            message_attribute_names: ['All'], # Receive all custom attributes.
-            max_number_of_messages: 10, # Receive at most one message.
-            wait_time_seconds: 15 # Do not wait to check for the message.
+            message_attribute_names: @config[:message_attribute_names],
+            max_number_of_messages: @config[:max_number_of_messages],
+            wait_time_seconds: @config[:wait_time_seconds],
+            visibility_timeout: @config[:visibility_timeout]
           )
 
           # Display information about the message.
@@ -67,6 +76,14 @@ class EventHub
         sqs.delete_message(
           queue_url: @config[:queue_url],
           receipt_handle: receipt_handle
+        )
+      end
+
+      def change_message_visibility(receipt_handle, visibility_timeout = 0)
+        sqs.change_message_visibility(
+          queue_url: @config[:queue_url],
+          receipt_handle: receipt_handle,
+          visibility_timeout: visibility_timeout
         )
       end
 
